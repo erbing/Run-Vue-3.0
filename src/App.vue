@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HelloWorld msg="vue & vue-router & vue-router"></HelloWorld>
+    <HelloWorld msg="vue3 & vue-router4 & vue-router4"></HelloWorld>
     <p>
       <router-link to="/">Home</router-link> | 
       <router-link to="/test">Test</router-link>

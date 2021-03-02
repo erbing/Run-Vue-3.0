@@ -1,23 +1,33 @@
 <template>
 	<div>
-		Test Comps Props: <span>{{ msg }}</span>
+		<h2>Test Comps Props: <span>{{ msg }}</span></h2>
 	</div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
+import { defineComponent, computed, onMounted } from 'vue';
+import { useStore } from 'vuex'
 
-@Options({
-  props: {
-    msg: String
-  }
-})
-export default class Test extends Vue {
-  private msg!: string
-
-	private setUp() {
-		console.log(123)
+export default defineComponent({
+  name: 'TestComp',
+	components: {},
+	props: {
+		msg: {
+			type: String,
+			default: ''
+		}
+	},
+	setup() {
+		const store = useStore()
+		const stateTestA = computed(()=>store.state.testA)
+		onMounted(()=> {})
+		return {
+			stateTestA
+		}
+	},
+	changeStore() {
+		console.log(333)
 	}
-}
+})
 </script>
 
